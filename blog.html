@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EduLink | Blog</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><span class="brand-mark">E</span><span>EduLink</span></div>
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Menüyü aç">
+                <span class="bar"></span>
+            </label>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="courses.html">Dersler</a></li>
+                    <li><a href="instructors.html">Eğitmenler</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div class="hero-text container">
+                <h2>EduLink Blog</h2>
+                <p>Yeni teknolojiler, eğitim trendleri ve ipuçları burada!</p>
+            </div>
+        </section>
+
+        <section class="blog container" id="blog-section"> <div class="blog-grid">
+                
+                <a href="#post-1" class="blog-link">
+                    <article class="blog-card card">
+                        <img src="images/blog1.jpeg" alt="Programlama Dilleri 2025">
+                        <h3>2025’in En Popüler Programlama Dilleri</h3>
+                        <p>Günümüzün hızla değişen teknoloji dünyasında öne çıkan dillerin analizi.</p>
+                    </article>
+                </a>
+                
+                <a href="#post-2" class="blog-link">
+                    <article class="blog-card card">
+                        <img src="images/blog2.jpeg" alt="Uzaktan Eğitim">
+                        <h3>Uzaktan Eğitimin Geleceği</h3>
+                        <p>Dijital eğitim dünyasında yapay zekâ destekli öğrenme platformlarının yükselişi.</p>
+                    </article>
+                </a>
+
+                <a href="#post-3" class="blog-link">
+                    <article class="blog-card card">
+                        <img src="images/blog3.jpeg" alt="AI ile Öğrenme">
+                        <h3>Yapay Zeka ile Öğrenmeyi Güçlendirmek</h3>
+                        <p>AI, kişiselleştirilmiş öğrenme deneyimini nasıl dönüştürüyor?</p>
+                    </article>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <div class="blog-details">
+        <div id="post-1" class="blog-detail">
+            <div class="detail-content card">
+                <a href="#blog-section" class="close-btn" aria-label="Kapat">X</a> 
+                <h4>2025’in En Popüler Programlama Dilleri</h4>
+                <p>
+                    **Detaylı Bilgi:** Veri bilimi, yapay zeka ve web3 teknolojilerinin yükselişiyle birlikte Python ve JavaScript gibi diller popülaritesini koruyor. Rust ve Go gibi performans odaklı diller ise sistem programlamada öne çıkmaya devam ediyor. Bu makale, 2025'te hangi dili öğrenmenin kariyeriniz için en iyi yatırım olacağını detaylıca inceliyor.
+                </p>
+            </div>
+        </div>
+
+        <div id="post-2" class="blog-detail">
+            <div class="detail-content card">
+                <a href="#blog-section" class="close-btn" aria-label="Kapat">X</a>
+                <h4>Uzaktan Eğitimin Geleceği</h4>
+                <p>
+                    **Detaylı Bilgi:** Geleneksel sınıf eğitimleri yerini esnek, zaman ve mekandan bağımsız online öğrenmeye bırakıyor. Sanal gerçeklik (VR) ve yapay zeka (AI) tabanlı adaptif test sistemleri, uzaktan eğitimin kalitesini ve kişiselleştirilebilirliğini artırıyor. Bu değişim, eğitimi herkes için daha erişilebilir kılıyor.
+                </p>
+            </div>
+        </div>
+        
+        <div id="post-3" class="blog-detail">
+            <div class="detail-content card">
+                <a href="#blog-section" class="close-btn" aria-label="Kapat">X</a>
+                <h4>Yapay Zeka ile Öğrenmeyi Güçlendirmek</h4>
+                <p>
+                    **Detaylı Bilgi:** Yapay zeka, öğrenci performansını analiz ederek bireysel öğrenme hızlarına ve ihtiyaçlarına göre içerik önerileri sunuyor. Bu, öğrenme sürecini optimize ediyor ve öğrencilerin zorlandıkları alanlarda anında destek almasını sağlıyor. AI, eğitimin geleceğindeki en büyük destekleyici teknolojilerden biri.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;">
+                    <span class="brand-mark">E</span>
+                    <div>
+                        <strong>EduLink</strong>
+                        <div class="small">Güncel Eğitim İçerikleri</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>İçerik</h4>
+                <ul>
+                    <li><a href="courses.html">Kategoriler</a></li>
+                    <li><a href="instructors.html">Yazarlar</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Topluluk</h4>
+                <ul>
+                    <li><a href="instructors.html">Forum</a></li>
+                    <li><a href="blog.html">Etkinlikler</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Yardım</h4>
+                <ul>
+                    <li><a href="#">SSS</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2025 EduLink | Tüm hakları saklıdır.</div>
+            <div class="small">Hazırlayan: Esma Gelebek</div>
+        </div>
+    </footer>
+</body>
+</html>

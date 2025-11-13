@@ -1,0 +1,155 @@
+/* courses.css */
+
+.courses-hero {
+    background: linear-gradient(rgba(2,6,23,0.5), rgba(2,6,23,0.5)),
+                url("../images/course.jpg") center/cover no-repeat;
+    color:#fff; text-align:center;
+    padding:86px 20px;
+    min-height:48vh;
+    display:flex; align-items:center; justify-content:center;
+}
+.courses-hero h2 { font-size:2.2rem; margin-bottom:8px; }
+.courses-hero p { color:#e6eef0; }
+
+.courses { padding: 36px 0 80px; }
+
+/* Kategori Filtreleme Butonları (LABEL'ları içeren kapsayıcı) */
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+/* 1. GÖRÜNMEZ INPUT'LARIN GİZLENMESİ */
+.courses input[type="radio"] { 
+    display: none; 
+}
+
+
+.filter-btn {
+    cursor: pointer;
+    background: var(--card);
+    color: var(--text);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: var(--radius);
+}
+.filter-btn:hover {
+    background: var(--light-bg);
+    transform: none;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* SEÇİLİ BUTON VURGUSU */
+#filter-all:checked ~ .filter-controls label[for="filter-all"],
+#filter-ai:checked ~ .filter-controls label[for="filter-ai"],
+#filter-web:checked ~ .filter-controls label[for="filter-web"],
+#filter-security:checked ~ .filter-controls label[for="filter-security"]
+{
+    /* SEÇİLDİĞİNDE UYGULANACAK GÜÇLÜ STİL */
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(58,175,169,0.3);
+    border-color: var(--accent);
+    font-weight: 600;
+}
+
+
+/* Filtreleme Mantığı */
+
+/* 1. Tüm kurs kartlarını varsayılan olarak gizle */
+.course-card {
+    display: none;
+    flex-direction: column; 
+    border-radius:12px; 
+    overflow:hidden; 
+    box-shadow: var(--shadow);
+    background: var(--card);
+    transition: transform .28s ease, box-shadow .28s ease; 
+    
+    min-width: 250px;
+}
+
+/* 2. 'Tümü' seçiliyken tüm kartları göster */
+#filter-all:checked ~ .filter-controls ~ .course-grid .course-card {
+    display: flex; 
+}
+
+/* 3. 'Yapay Zeka & Veri' seçiliyken ai-course kartlarını göster */
+#filter-ai:checked ~ .filter-controls ~ .course-grid .ai-course {
+    display: flex;
+}
+
+/* 4. 'Web Geliştirme' seçiliyken web-course kartlarını göster */
+#filter-web:checked ~ .filter-controls ~ .course-grid .web-course {
+    display: flex;
+}
+
+/* 5. 'Siber Güvenlik' seçiliyken security-course kartlarını göster */
+#filter-security:checked ~ .filter-controls ~ .course-grid .security-course {
+    display: flex;
+}
+
+/* grid */
+.course-grid {
+    display:grid;
+    /* Kartların maksimum genişliği 350px olarak kısıtlı kaldı */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px)); 
+    gap:22px;
+    align-items:stretch; 
+    
+    /* Grid'in maksimum genişliğini iki kart + boşluk kadar sınırladık */
+    max-width: 750px; 
+    margin: 0 auto; 
+    justify-content: center; 
+}
+
+/* Kartın Hover Stili */
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+}
+
+/* Kart İçeriği Stilleri */
+.course-card img { 
+    width:100%; 
+    /* Görüntü yüksekliği 140px'te kaldı */
+    height: 140px; 
+    object-fit:cover;
+}
+.course-card h3 { 
+    font-size:1.05rem; 
+    margin:14px 16px 4px; 
+    color:var(--primary);
+}
+.course-card p { 
+    /* DÜZELTME: Açıklama metni kısıtlamaları KALDIRILDI */
+    
+    /* Metin akışını eski haline getirdik */
+    max-height: none; 
+    overflow: visible; 
+    text-overflow: clip;
+    display: block; 
+    -webkit-line-clamp: unset; 
+    -webkit-box-orient: unset;
+
+    margin:0 16px 18px; 
+    color:var(--muted); 
+    font-size:0.95rem; 
+}
+.course-card::before{
+    content: "Eğitim";
+    display:inline-block;
+    background: linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:#fff; padding:6px 10px; border-radius:999px;
+    font-size:0.75rem; margin:14px 16px 0;
+    position:relative;
+    transform:translateY(10px);
+    opacity:0.95;
+}

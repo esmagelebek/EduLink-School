@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EduLink | Dersler</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/courses.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><span class="brand-mark">E</span><span>EduLink</span></div>
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Menüyü aç">
+                <span class="bar"></span>
+            </label>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="courses.html" class="active">Dersler</a></li>
+                    <li><a href="instructors.html">Eğitmenler</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="courses-hero">
+            <div class="hero-text container">
+                <h2>Popüler Derslerimiz</h2>
+                <p>Geleceğini şekillendirecek en güncel konularda hemen öğrenmeye başla!</p>
+            </div>
+        </section>
+
+        <section class="courses container">
+            
+            <input type="radio" id="filter-all" name="category" checked>
+            <input type="radio" id="filter-ai" name="category">
+            <input type="radio" id="filter-web" name="category">
+            <input type="radio" id="filter-security" name="category">
+
+            <div class="filter-controls"> 
+                <label for="filter-all" class="btn filter-btn">Tümü</label>
+                <label for="filter-ai" class="btn filter-btn">Yapay Zeka & Veri</label>
+                <label for="filter-web" class="btn filter-btn">Web Geliştirme</label>
+                <label for="filter-security" class="btn filter-btn">Siber Güvenlik</label>
+            </div>
+            
+            <div class="course-grid">
+                <article class="course-card card ai-course prog-course">
+                    <img src="images/python.png" alt="Python Programlama">
+                    <h3>Python Programlama</h3>
+                    <p>Temelden ileri seviyeye Python öğren, veri analizi ve otomasyon becerilerini geliştir.</p>
+                </article>
+
+                <article class="course-card card web-course">
+                    <img src="images/webgelistirme.jpg" alt="Web Geliştirme">
+                    <h3>Web Geliştirme</h3>
+                    <p>HTML, CSS ve JavaScript ile profesyonel web siteleri oluşturmayı öğren.</p>
+                </article>
+
+                <article class="course-card card ai-course">
+                    <img src="images/yapayzeka.png" alt="Yapay Zeka">
+                    <h3>Yapay Zeka Temelleri</h3>
+                    <p>Makine öğrenmesi, derin öğrenme ve veri bilimi kavramlarını keşfet.</p>
+                </article>
+
+                <article class="course-card card security-course">
+                    <img src="images/siber.jpeg" alt="Siber Güvenlik">
+                    <h3>Siber Güvenlik</h3>
+                    <p>Sistem açıklarını analiz etmeyi ve ağ güvenliğini sağlamayı öğren.</p>
+                </article>
+
+                <article class="course-card card web-course">
+                    <img src="images/uıtasarim.jpg" alt="UI/UX">
+                    <h3>UI / UX Tasarımı</h3>
+                    <p>Kullanıcı deneyimini geliştiren modern arayüz tasarımlarına adım at.</p>
+                </article>
+
+                <article class="course-card card ai-course">
+                    <img src="images/veribilimi.jpg" alt="Veri Bilimi">
+                    <h3>Veri Bilimi</h3>
+                    <p>Veriyi anlamlandır, analiz et ve geleceği tahmin eden modeller oluştur.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;">
+                    <span class="brand-mark">E</span>
+                    <div>
+                        <strong>EduLink</strong>
+                        <div class="small">Online Eğitim Platformu</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hakkında</h4>
+                <ul>
+                    <li><a href="index.html">Hakkımızda</a></li>
+                    
+                    <li><a href="blog.html">Basın</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kaynaklar</h4>
+                <ul>
+                    <li><a href="#">Sıkça Sorulanlar</a></li>
+                    <li><a href="#">Yardım</a></li>
+                    <li><a href="#">Ödeme Seçenekleri</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Yasal</h4>
+                <ul>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Kullanım Koşulları</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2025 EduLink | Tüm hakları saklıdır.</div>
+            <div class="small">Hazırlayan: Esma Gelebek</div>
+        </div>
+    </footer>
+</body>
+</html>
