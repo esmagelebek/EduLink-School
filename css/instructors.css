@@ -1,44 +1,18 @@
-/* instructors.css */
-
 .instructors-hero {
     background: linear-gradient(rgba(2,6,23,0.38), rgba(2,6,23,0.38)),
                 url("../images/instructor.jpg") center/cover no-repeat;
     color:#fff; text-align:center;
     padding:64px 20px; min-height:40vh; display:flex; align-items:center; justify-content:center;
 }
-.instructors { 
-    padding:36px 0 80px; 
-}
+.instructors { padding:36px 0 80px; }
 
-.instructor-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap:22px;
-}
-
-.instructor-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-.instructor-card { 
-    text-align:center; 
-    overflow:hidden; 
-    border-radius:12px; 
-    background:var(--card); 
-    transition: transform .28s ease, box-shadow .28s ease; 
-    box-shadow:var(--shadow);
-    height: 100%;
-}
-.instructor-card:hover { 
-    cursor: pointer; 
-    transform: translateY(-5px);
-    box-shadow: 0 16px 30px rgba(0,0,0,0.1);
-}
+.instructor-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:22px; }
+.instructor-link { text-decoration: none; color: inherit; display: block; }
+.instructor-card { text-align:center; overflow:hidden; border-radius:12px; background:var(--card); transition: transform .28s ease, box-shadow .28s ease; box-shadow:var(--shadow); height: 100%; }
+.instructor-card:hover { cursor: pointer; transform: translateY(-5px);box-shadow: 0 16px 30px rgba(0,0,0,0.1);}
 .instructor-card img { width:100%; height:240px; object-fit:cover; display:block; }
 .instructor-card h3 { margin:12px 8px 6px; color:var(--primary); }
 .instructor-card p { margin-bottom:14px; color:var(--muted); font-size:0.95rem; padding:0 8px 16px; }
-
 /* EĞİTMEN DETAY MODAL (CSS :target hack) */
 .detail-modal {
     opacity: 0;
@@ -55,13 +29,8 @@
     align-items: center;
     transition: opacity 0.3s ease;
 }
-
 /* Tıklanınca görünür yap */
-.detail-modal:target {
-    opacity: 1;
-    visibility: visible;
-}
-
+.detail-modal:target { opacity: 1; visibility: visible;}
 .detail-content {
     background: var(--card);
     padding: 30px;
@@ -72,41 +41,8 @@
     position: relative;
     text-align: center;
 }
-.detail-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 4px solid var(--accent-2);
-}
-.detail-content h4 { 
-    color: var(--primary); 
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-.detail-content h4 small {
-    display: block;
-    color: var(--muted);
-    font-size: 0.9rem;
-    font-weight: 400;
-    margin-top: 5px;
-}
-.detail-content p { 
-    color: var(--text);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--primary);
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 50%;
-    line-height: 1;
-    z-index: 3001;
-}
+.detail-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--accent-2);}
+.detail-content h4 { color: var(--primary); margin-bottom: 10px;font-size: 1.5rem;}
+.detail-content h4 small {display: block;color: var(--muted);font-size: 0.9rem;font-weight: 400;margin-top: 5px;}
+.detail-content p {   color: var(--text);  margin-bottom: 20px;  line-height: 1.6;}
+.close-btn {position: absolute;top: 15px;right: 15px;background: var(--primary);color: #fff;text-decoration: none;font-weight: bold;padding: 5px 10px;border-radius: 50%;line-height: 1;z-index: 3001;}
