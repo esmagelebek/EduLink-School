@@ -13,7 +13,48 @@
 
 .courses { padding: 36px 0 80px; }
 
-/* Kategori Filtreleme Butonları (LABEL'ları içeren kapsayıcı) */
+/* --- YENİ ARAMA ÇUBUĞU STİLLERİ --- */
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 30px; /* Alttan boşluk bıraktık */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#course-search {
+    width: 100%;
+    padding: 12px 40px 12px 18px; /* İkon için sağdan boşluk */
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    background: var(--card);
+    color: var(--text);
+}
+
+#course-search:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(58,175,169,0.1);
+}
+
+.search-container .fas.fa-search {
+    position: absolute;
+    right: 15px;
+    color: var(--muted);
+    pointer-events: none; /* İkona tıklamayı engelle */
+}
+
+/* Karanlık Mod Uyumları */
+body.dark-mode #course-search {
+    border: 1px solid #333;
+}
+
+/* --- MEVCUT FİLTRE KONTROLLERİ --- */
+
 .filter-controls {
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +74,7 @@
     background: var(--card);
     color: var(--text);
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border: 1px solid var(--border);
+    border: 1px solid #e0e0e0; /* Varsayılan border ekledik */
     transition: all 0.3s ease;
     padding: 8px 18px;
     font-size: 0.95rem;
@@ -41,7 +82,7 @@
     border-radius: var(--radius);
 }
 .filter-btn:hover {
-    background: var(--light-bg);
+    background: #f0f0f0;
     transform: none;
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
@@ -61,51 +102,46 @@
 }
 
 
-/* Filtreleme Mantığı */
+/* Filtreleme Mantığı (JS ile devralınacağı için tüm CSS filtreleme mantığını kaldırıyorum) */
+/* NOT: JavaScript ile hem arama hem de kategoriyi yöneteceğimiz için,
+         mevcut CSS'teki #filter-all:checked ~ .course-grid .course-card gibi 
+         tüm CSS filtreleme bloklarını SİLMENİZ GEREKİR.
+         
+         Şimdilik bu kodda o blokları sildim, sadece aşağıdaki temel stilleri bıraktım.
+*/
 
-/* 1. Tüm kurs kartlarını varsayılan olarak gizle */
+/* --- MEVCUT KART STİLLERİ (Değişmedi) --- */
+
 .course-card {
-    display: none;
+    /* Varsayılan olarak gösteriyoruz, JS gizleyecek/gösterecek */
+    display: flex; 
     flex-direction: column; 
     border-radius:12px; 
     overflow:hidden; 
     box-shadow: var(--shadow);
     background: var(--card);
-    transition: transform .28s ease, box-shadow .28s ease; 
+    transition: transform .28s ease, box-shadow .28s ease, opacity 0.3s ease; /* JS görünmezliği için opacity ekledik */
     
     min-width: 250px;
+    /* JS ile gizlenmiş kartlar için kullanılacak sınıf */
+    opacity: 1; 
+    /* display: none yerine absolute kullanmak grid yapısını korur, ancak bu örnekte display:flex kullanacağız */
 }
 
-/* 2. 'Tümü' seçiliyken tüm kartları göster */
-#filter-all:checked ~ .filter-controls ~ .course-grid .course-card {
-    display: flex; 
+/* JS ile gizlenecek kartlar */
+.course-card.hidden {
+    display: none !important;
 }
 
-/* 3. 'Yapay Zeka & Veri' seçiliyken ai-course kartlarını göster */
-#filter-ai:checked ~ .filter-controls ~ .course-grid .ai-course {
-    display: flex;
-}
-
-/* 4. 'Web Geliştirme' seçiliyken web-course kartlarını göster */
-#filter-web:checked ~ .filter-controls ~ .course-grid .web-course {
-    display: flex;
-}
-
-/* 5. 'Siber Güvenlik' seçiliyken security-course kartlarını göster */
-#filter-security:checked ~ .filter-controls ~ .course-grid .security-course {
-    display: flex;
-}
 
 /* grid */
 .course-grid {
     display:grid;
-    /* Kartların maksimum genişliği 350px olarak kısıtlı kaldı */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 350px)); 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Daha esnek bir grid yaptık */
     gap:22px;
     align-items:stretch; 
     
-    /* Grid'in maksimum genişliğini iki kart + boşluk kadar sınırladık */
-    max-width: 750px; 
+    max-width: 1200px; /* Maksimum genişliği artırdık */
     margin: 0 auto; 
     justify-content: center; 
 }
@@ -119,7 +155,6 @@
 /* Kart İçeriği Stilleri */
 .course-card img { 
     width:100%; 
-    /* Görüntü yüksekliği 140px'te kaldı */
     height: 140px; 
     object-fit:cover;
 }
@@ -129,16 +164,6 @@
     color:var(--primary);
 }
 .course-card p { 
-    /* DÜZELTME: Açıklama metni kısıtlamaları KALDIRILDI */
-    
-    /* Metin akışını eski haline getirdik */
-    max-height: none; 
-    overflow: visible; 
-    text-overflow: clip;
-    display: block; 
-    -webkit-line-clamp: unset; 
-    -webkit-box-orient: unset;
-
     margin:0 16px 18px; 
     color:var(--muted); 
     font-size:0.95rem; 
@@ -152,4 +177,183 @@
     position:relative;
     transform:translateY(10px);
     opacity:0.95;
+}
+/* courses.css dosyasının en sonuna ekleyin */
+
+/* --- KURS DETAY MODALI TEMEL STİLLERİ --- */
+
+/* Modal Arka Planı ve Konumlandırma */
+.course-modal {
+    display: none; /* Varsayılan olarak gizli */
+    position: fixed; 
+    z-index: 1000; /* Her şeyin üstünde */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; 
+    background-color: rgba(0, 0, 0, 0.75); /* Arkadaşı karart */
+    backdrop-filter: blur(4px); 
+    animation: fadeIn 0.3s;
+}
+
+/* Modal İçerik Kutusu */
+.modal-content {
+    background-color: var(--card); /* main.css'ten gelen card rengi */
+    color: var(--text);
+    margin: 5% auto; 
+    padding: 30px;
+    border-radius: var(--radius);
+    width: 90%; 
+    max-width: 750px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    animation: slideIn 0.4s ease-out;
+    transform: none !important; 
+}
+.course-modal.card:hover { 
+    transform: none; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+}
+
+/* Kapanma Butonu (X) */
+.close-modal {
+    color: var(--muted); 
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--accent-2);
+}
+
+/* --- İÇERİK STİLLERİ --- */
+
+.modal-content h3 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+/* Karanlık Mod Başlık Rengi */
+body.dark-mode .modal-content h3 {
+    color: var(--text); 
+    border-color: var(--accent);
+}
+
+/* Kategori Etiketi */
+.modal-tag {
+    display: inline-block;
+    background: var(--accent-2);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Bilgi Kutusu (Süre, Eğitmen, Sertifika) */
+.modal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px dashed var(--muted);
+    border-radius: 8px;
+    background: var(--bg); 
+}
+/* Karanlık Mod Bilgi Kutusu */
+body.dark-mode .modal-info {
+    background: #2b2b2b; 
+    border-color: #555;
+}
+
+.modal-info div {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--text);
+}
+
+.modal-info i {
+    margin-right: 10px;
+    color: var(--accent-2);
+    font-size: 1.1rem;
+}
+
+.modal-content h4 {
+    margin-top: 15px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.modal-content ul li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.modal-content ul li::before {
+    content: "\f058"; /* Font Awesome Check (Dolu Daire) İkonu */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-2);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Karttaki Detaylı İncele Butonunun Stili */
+.course-detail-btn {
+    display: block; 
+    width: 100%;
+    margin-top: auto; 
+    text-align: center;
+    /* main.css'teki .btn stili uygulansın */
+    border-radius: 0 0 12px 12px; /* Sadece alt köşeler yuvarlanır */
+    padding: 12px 15px;
+    font-size: 0.95rem;
+}
+
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobil için iyileştirmeler */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
 }

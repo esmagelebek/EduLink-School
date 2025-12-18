@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>EduLink-School | Öğrenmeyi Keşfet</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -26,7 +27,12 @@
                     <li><a href="instructors.html">Eğitmenler</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">İletişim</a></li>
-                    </ul>
+                    <li>
+                       <button id="theme-toggle" class="btn theme-toggle-btn">
+                          <i class="fas fa-moon"></i>
+                       </button>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -38,23 +44,26 @@
                 <a class="btn" href="courses.html">Dersleri Keşfet</a>
             </div>
         </section>
+        
         <section class="features container">
-            <h2>Neden EduLink-School?</h2>
+            <h2 data-reveal="true" data-reveal-delay="0">Neden EduLink-School?</h2> 
+            
             <div class="feature-grid">
-                <div class="feature-card card">
+                <div class="feature-card card" data-reveal="true" data-reveal-delay="100">
                     <h3>Uzman Eğitmenler</h3>
                     <p>Alanında deneyimli eğitmenlerle pratik ve güncel içeriğe eriş.</p>
                 </div>
-                <div class="feature-card card">
+                <div class="feature-card card" data-reveal="true" data-reveal-delay="250">
                     <h3>Esnek Öğrenme</h3>
                     <p>Dilediğin zaman, dilediğin cihazdan erişerek öğrenmeyi ilerlet.</p>
                 </div>
-                <div class="feature-card card">
+                <div class="feature-card card" data-reveal="true" data-reveal-delay="400">
                     <h3>Sertifika Programları</h3>
                     <p>Tamamladığın kurslarla profesyonel sertifikalar elde et.</p>
                 </div>
             </div>
         </section>
+        
     </main>
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -71,7 +80,6 @@
                 <h4>Hakkında</h4>
                 <ul>
                     <li><a href="index.html">Hakkımızda</a></li>
-                    
                     <li><a href="contact.html">İletişim</a></li>
                 </ul>
             </div>
@@ -86,7 +94,7 @@
             <div class="footer-col">
                 <h4>Yasal</h4>
                 <ul>
-                    <li><a href="#">Gizlilik</a></li>                                   
+                    <li><a href="#">Gizlilik</a></li>  
                 </ul>
             </div>
         </div>
@@ -95,5 +103,9 @@
             <div class="small">Designed with ❤ — Esma Gelebek</div>
         </div>
     </footer>
+    
+    <script src="js/theme-toggle.js"></script>
+    
+    <script src="js/scroll-reveal.js"></script> 
 </body>
 </html>

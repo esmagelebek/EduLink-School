@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
     <header>
@@ -23,6 +24,11 @@
                     <li><a href="instructors.html">Eğitmenler</a></li>
                     <li><a href="blog.html" class="active">Blog</a></li>
                     <li><a href="contact.html">İletişim</a></li>
+                    <li>
+                       <button id="theme-toggle" class="btn theme-toggle-btn">
+                          <i class="fas fa-moon"></i>
+                       </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -30,26 +36,27 @@
     <main>
         <section class="blog-hero">
             <div class="hero-text container">
-                <h2>EduLink-School Blog</h2>
-                <p>Yeni teknolojiler, eğitim trendleri ve ipuçları burada!</p>
+                <h2 data-reveal="true" data-reveal-delay="0">EduLink-School Blog</h2>
+                <p data-reveal="true" data-reveal-delay="100">Yeni teknolojiler, eğitim trendleri ve ipuçları burada!</p>
             </div>
         </section>
-        <section class="blog container" id="blog-section"> <div class="blog-grid">                
-                <a href="#post-1" class="blog-link">
+        <section class="blog container" id="blog-section"> 
+            <div class="blog-grid"> 
+                <a href="#post-1" class="blog-link" data-reveal="true" data-reveal-delay="200">
                     <article class="blog-card card">
                         <img src="images/blog1.jpeg" alt="Programlama Dilleri 2025">
                         <h3>2025’in En Popüler Programlama Dilleri</h3>
                         <p>Günümüzün hızla değişen teknoloji dünyasında öne çıkan dillerin analizi.</p>
                     </article>
-                </a>                
-                <a href="#post-2" class="blog-link">
+                </a> 
+                <a href="#post-2" class="blog-link" data-reveal="true" data-reveal-delay="400">
                     <article class="blog-card card">
                         <img src="images/blog2.jpeg" alt="Uzaktan Eğitim">
                         <h3>Uzaktan Eğitimin Geleceği</h3>
                         <p>Dijital eğitim dünyasında yapay zekâ destekli öğrenme platformlarının yükselişi.</p>
                     </article>
                 </a>
-                <a href="#post-3" class="blog-link">
+                <a href="#post-3" class="blog-link" data-reveal="true" data-reveal-delay="600">
                     <article class="blog-card card">
                         <img src="images/blog3.jpeg" alt="AI ile Öğrenme">
                         <h3>Yapay Zeka ile Öğrenmeyi Güçlendirmek</h3>
@@ -58,7 +65,7 @@
                 </a>
             </div>
         </section>
-    </main>    
+    </main> 
     <div class="blog-details">
         <div id="post-1" class="blog-detail">
             <div class="detail-content card">
@@ -77,7 +84,7 @@
                     **Detaylı Bilgi:** Geleneksel sınıf eğitimleri yerini esnek, zaman ve mekandan bağımsız online öğrenmeye bırakıyor. Sanal gerçeklik (VR) ve yapay zeka (AI) tabanlı adaptif test sistemleri, uzaktan eğitimin kalitesini ve kişiselleştirilebilirliğini artırıyor. Bu değişim, eğitimi herkes için daha erişilebilir kılıyor.
                 </p>
             </div>
-        </div>        
+        </div> 
         <div id="post-3" class="blog-detail">
             <div class="detail-content card">
                 <a href="#blog-section" class="close-btn" aria-label="Kapat">X</a>
@@ -108,7 +115,7 @@
             </div>
             <div class="footer-col">
                 <h4>Topluluk</h4>
-                <ul>                    
+                <ul> 
                     <li><a href="blog.html">Etkinlikler</a></li>
                 </ul>
             </div>
@@ -125,5 +132,7 @@
             <div class="small">Hazırlayan: Esma Gelebek</div>
         </div>
     </footer>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/scroll-reveal.js"></script>
 </body>
 </html>

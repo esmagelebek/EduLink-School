@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/instructors.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
     <header>
@@ -22,7 +23,12 @@
                     <li><a href="courses.html">Dersler</a></li>
                     <li><a href="instructors.html" class="active">Eğitmenler</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">İletişim</a></li>                    
+                    <li><a href="contact.html">İletişim</a></li> 
+                    <li>
+                       <button id="theme-toggle" class="btn theme-toggle-btn">
+                          <i class="fas fa-moon"></i>
+                       </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -30,71 +36,25 @@
     <main>
         <section class="instructors-hero">
             <div class="hero-text container">
-                <h2>Uzman Eğitmenlerimiz</h2>
-                <p>Alanında lider eğitmenlerle öğrenme deneyimini en üst seviyeye çıkar.</p>
+                <h2 data-reveal="true" data-reveal-delay="0">Uzman Eğitmenlerimiz</h2>
+                <p data-reveal="true" data-reveal-delay="100">Alanında lider eğitmenlerle öğrenme deneyimini en üst seviyeye çıkar.</p>
             </div>
         </section>
         <section class="instructors container" id="instructors-section">
-            <div class="instructor-grid">
-                <a href="#ahmet-detail" class="instructor-link">
-                    <div class="instructor-card card">
-                        <img src="images/egitmen1.jpeg" alt="Ahmet Yılmaz">
-                        <h3>Ahmet Yılmaz</h3>
-                        <p>Python & Veri Bilimi Uzmanı</p>
-                    </div>
-                </a>
-                <a href="#elif-detail" class="instructor-link">
-                    <div class="instructor-card card">
-                        <img src="images/elif.jpg" alt="Elif Demir">
-                        <h3>Elif Demir</h3>
-                        <p>Web Geliştirme Eğitmeni</p>
-                    </div>
-                </a>
-                <a href="#mehmet-detail" class="instructor-link">
-                    <div class="instructor-card card">
-                        <img src="images/egitmen3.jpeg" alt="Mehmet Kaya">
-                        <h3>Mehmet Kaya</h3>
-                        <p>Yapay Zeka Mühendisi</p>
-                    </div>
-                </a>
+            
+            <div class="filter-controls" data-reveal="true" data-reveal-delay="100">
+                <input type="text" id="instructor-search" placeholder="Eğitmen veya Uzmanlık Alanı Ara..." class="search-input">
+                <select id="instructor-filter" class="select-filter">
+                    <option value="all">Tüm Alanlar</option>
+                    </select>
             </div>
+            <div class="instructor-grid">
+                </div>
+
+            <p id="no-results-message" style="display:none; text-align:center; color:var(--muted); padding:40px;">Aradığınız kriterlere uygun eğitmen bulunamadı.</p>
         </section>
     </main>
-    <div class="instructor-details-container">
-        <div id="ahmet-detail" class="detail-modal">
-            <div class="detail-content card">
-                <a href="#instructors-section" class="close-btn" aria-label="Kapat">X</a>
-                <img src="images/egitmen1.jpeg" alt="Ahmet Yılmaz" class="detail-img">
-                <h4>Ahmet Yılmaz <small>(Python & Veri Bilimi)</small></h4>
-                <p>
-                    Ahmet Yılmaz, 10 yılı aşkın tecrübesiyle Python programlama ve büyük veri analizi alanlarında uzmandır. Alanındaki en popüler kursları sunmaktadır.
-                </p>
-                <a href="courses.html" class="btn">Derslerini Görüntüle</a>
-            </div>
-        </div>
-        <div id="elif-detail" class="detail-modal">
-            <div class="detail-content card">
-                <a href="#instructors-section" class="close-btn" aria-label="Kapat">X</a>
-                <img src="images/elif.jpg" alt="Elif Demir" class="detail-img">
-                <h4>Elif Demir <small>(Web Geliştirme)</small></h4>
-                <p>
-                    Elif Demir, Full-Stack Web Geliştirici olarak sektörde 8 yıllık deneyime sahiptir. HTML5, CSS3, JavaScript ve React konularında uzmandır.
-                </p>
-                <a href="courses.html" class="btn">Derslerini Görüntüle</a>
-            </div>
-        </div>
-        <div id="mehmet-detail" class="detail-modal">
-            <div class="detail-content card">
-                <a href="#instructors-section" class="close-btn" aria-label="Kapat">X</a>
-                <img src="images/egitmen3.jpeg" alt="Mehmet Kaya" class="detail-img">
-                <h4>Mehmet Kaya <small>(Yapay Zeka Mühendisi)</small></h4>
-                <p>
-                    Mehmet Kaya, Yapay Zeka Mühendisliği alanında yüksek lisans derecesine sahiptir. Derin öğrenme ve doğal dil işleme (NLP) üzerine odaklanmaktadır.
-                </p>
-                <a href="courses.html" class="btn">Derslerini Görüntüle</a>
-            </div>
-        </div>
-    </div>    
+    
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <div class="footer-brand">
@@ -109,7 +69,7 @@
             <div class="footer-col">
                 <h4>Hakkında</h4>
                 <ul>
-                    <li><a href="index.html">Hakkımızda</a></li>                    
+                    <li><a href="index.html">Hakkımızda</a></li> 
                 </ul>
             </div>
             <div class="footer-col">
@@ -121,7 +81,7 @@
             </div>
             <div class="footer-col">
                 <h4>Yardım</h4>
-                <ul>                
+                <ul> 
                     <li><a href="contact.html">İletişim</a></li>
                 </ul>
             </div>
@@ -131,5 +91,9 @@
             <div class="small">Hazırlayan: Esma Gelebek</div>
         </div>
     </footer>
+    
+    <script src="js/instructors.js" defer></script> 
+    <script src="js/theme-toggle.js" defer></script>
+    <script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>

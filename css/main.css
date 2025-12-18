@@ -5,7 +5,7 @@
 --text: #1f2937;
 --muted: #6b7280;
 --primary: #0b132b; /* koyu lacivert */
---accent: #5bc0be;   /* aqua */
+--accent: #5bc0be;  /* aqua */
 --accent-2: #3aafa9;
 --glass: rgba(11,19,43,0.85);
 --shadow: 0 8px 24px rgba(16,24,40,0.06);
@@ -82,7 +82,7 @@ padding: 14px 20px;
 }
 /* Navigasyon bloğunu sağa itmek için kural korundu */
 .navbar nav {
-    margin-left: auto;
+   margin-left: auto;
 }
 /* logo */
 .logo {
@@ -222,3 +222,75 @@ border-radius:8px;
 /* small helpers for headings */
 .page-title { font-size:2.2rem; color:#fff; font-weight:700; margin-bottom:10px; }
 .lead { color:#e6eef0; font-size:1rem; max-width:760px; margin:auto; }
+
+/* --- KARANLIK MOD STİLLERİ (Eklenen Kısım) --- */
+
+/* body.dark-mode sınıfı, JavaScript ile body etiketine eklendiğinde bu stil geçerli olur. */
+body.dark-mode {
+    /* Renk Değişkenlerinin Koyu Versiyonları */
+    --bg: #121212; 
+    --card: #1f1f1f; 
+    --text: #e0e0e0; 
+    --muted: #a0a0a0; 
+    --primary: #5bc0be; /* Başlıklar ve Vurgular için Aqua (Light moddaki accent rengini kullanıyor) */
+    --accent: #5bc0be; 
+    --accent-2: #3aafa9;
+    --glass: rgba(31,31,31,0.9); 
+    --shadow: 0 8px 24px rgba(0,0,0,0.4); 
+    
+    /* Doğrudan body stillerini günceller */
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Header ve Footer Düzenlemeleri */
+body.dark-mode header {
+    /* Header'ı da koyu arka plana uyacak şekilde güncelliyoruz */
+    background: var(--glass);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark-mode .site-footer {
+    /* Footer arka planını daha koyu bir tonla değiştiriyoruz */
+    background: linear-gradient(180deg, #121212, #000000 80%);
+}
+
+/* Kartların Koyu Modda Daha Belirgin Olması İçin Kenarlık */
+body.dark-mode .card {
+    border: 1px solid #333;
+    box-shadow: var(--shadow); /* Yeni koyu gölgeyi kullan */
+}
+
+/* Navbar Linklerinin Koyu Moda Uyum Sağlaması */
+body.dark-mode .nav-links a {
+    color: var(--text); /* Koyu mod yazı rengini kullan */
+}
+
+/* Mobil Menü Arka Planı */
+@media (max-width:700px){
+    body.dark-mode .nav-links {
+        background: #1f1f1f; /* Koyu kart rengi */
+        box-shadow: 0 12px 36px rgba(0,0,0,0.8);
+    }
+}
+/* --- SCROLL REVEAL STİLLERİ (Yeni Eklendi) --- */
+
+/* Başlangıç Durumu (Gizli) - data-reveal niteliği olan tüm elementler */
+[data-reveal="true"] {
+    /* Görünmezlik */
+    opacity: 0;
+    
+    /* Başlangıç Kaydırma Konumu (Alttan yukarı 20px kayacak) */
+    transform: translateY(20px); 
+    
+    /* Animasyon Yumuşaklığı ve Süresi */
+    transition: 
+        opacity 0.6s cubic-bezier(0.17, 0.55, 0.55, 1), 
+        transform 0.6s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+/* Bitiş Durumu (Görünür) - JavaScript bu sınıfı ekleyecek */
+[data-reveal="true"].is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Orijinal konumuna gel */
+}

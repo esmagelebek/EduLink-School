@@ -46,3 +46,122 @@
 .detail-content h4 small {display: block;color: var(--muted);font-size: 0.9rem;font-weight: 400;margin-top: 5px;}
 .detail-content p {   color: var(--text);  margin-bottom: 20px;  line-height: 1.6;}
 .close-btn {position: absolute;top: 15px;right: 15px;background: var(--primary);color: #fff;text-decoration: none;font-weight: bold;padding: 5px 10px;border-radius: 50%;line-height: 1;z-index: 3001;}
+/* --- YENİ EKLENEN STİLLER: FİLTRELEME VE ARAMA --- */
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Küçük ekranlarda alta geçsin */
+}
+
+.search-input, .select-filter {
+    padding: 10px 15px;
+    border-radius: var(--radius);
+    border: 1px solid var(--muted);
+    background: var(--card);
+    color: var(--text);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-input {
+    flex-grow: 1; /* Arama kutusu daha fazla yer kaplasın */
+    max-width: 400px;
+}
+
+.select-filter {
+    min-width: 180px;
+}
+
+.search-input:focus, .select-filter:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+/* Karanlık mod uyumu */
+body.dark-mode .search-input, body.dark-mode .select-filter {
+    border: 1px solid #333;
+    color: var(--text);
+}
+/* --- YENİ EKLENEN STİLLER: BACK TO TOP BUTONU --- 
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--accent-2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    display: none; /* JS ile gösterilecek 
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+*/
+/*
+#back-to-top.show {
+    display: flex;  Geri kalan animasyonlar için display: flex olarak kalacak 
+    opacity: 1;
+    transform: translateY(0);
+}
+#back-to-top:hover {
+    transform: translateY(-3px);
+    background: var(--accent);
+}
+
+/* Küçük ekran düzenlemesi */
+@media (max-width: 600px) {
+    .filter-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .search-input, .select-filter {
+        width: 100%;
+        max-width: none;
+    }
+}
+/* Eğitmen alan etiketi stili */
+.instructor-card .instructor-area {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+/* Örnek CSS */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary); /* Temaya uygun bir renk */
+    color: var(--background); /* Temaya uygun bir renk */
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: var(--primary-dark);
+}
